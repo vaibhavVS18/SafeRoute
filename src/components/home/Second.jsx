@@ -6,25 +6,25 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const slides = [
   {
-    img: "/safe1.png",
+    img: "/safety1.png",
     title: "Trusted Guardians",
     desc1: "Choose trusted guardians who can see your live location",
     desc2: "and stay connected through your entire journey.",
   },
   {
-    img: "/safe2.png",
+    img: "/safety2.png",
     title: "Live Route Tracking",
     desc1: "Guardians can follow your route in real time",
     desc2: "so they always know you're safe at every step.",
   },
   {
-    img: "/safe3.png",
+    img: "/safety3.png",
     title: "Instant SOS Alert",
     desc1: "Send an immediate SOS notification to your guardians",
     desc2: "whenever you feel unsafe or need quick help.",
   },
   {
-    img: "/safe4.png",
+    img: "/safety4.png",
     title: "Safe-Arrival Notification",
     desc1: "Guardians receive alerts the moment your child or loved one",
     desc2: "reaches home safely.",
@@ -34,7 +34,6 @@ const slides = [
 const Second = () => {
   const [current, setCurrent] = useState(0);
 
-  // Auto slide change
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
@@ -69,7 +68,8 @@ const Second = () => {
             priority={index === current}
           />
 
-          <div className="absolute bottom-10 text-center px-4">
+          {/* Overlay for text */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full bg-black/50 backdrop-blur-sm rounded-b-xl p-4 py-5 text-center">
             <h3 className="text-xl sm:text-2xl font-bold text-white drop-shadow-md">
               {slide.title}
             </h3>
@@ -100,12 +100,12 @@ const Second = () => {
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrent(index)}
-            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
               index === current
                 ? "bg-white scale-110 shadow-md"
                 : "bg-gray-500 hover:bg-gray-300"

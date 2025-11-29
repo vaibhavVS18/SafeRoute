@@ -18,50 +18,49 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 inset-x-0 z-50 bg-gradient-to-r from-gray-900 via-gray-950 to-gray-900 backdrop-blur-xl shadow-lg">
-      <div className="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between">
+    <header className="sticky top-0 inset-x-0 z-50 bg-gradient-to-r from-gray-900 via-gray-950 to-gray-900 backdrop-blur-xl shadow-lg h-20">
+      <div className="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between h-full">
 
-        <Link href="/" className="cursor-pointer flex items-center gap-2">
-          <div className="relative w-32 h-10">
+        {/* Logo */}
+        <Link href="/" className="cursor-pointer flex items-center h-full">
+          <div className="relative h-full w-40">
             <Image
-              src="/logo.png"
+              src="/logo4.png"
               alt="SafeRoute Logo"
               fill
-              priority
               className="object-contain"
+              priority
             />
           </div>
         </Link>
 
-        <nav className="hidden md:flex items-center space-x-10">
+        {/* Navigation */}
+        <nav className="hidden md:flex items-center space-x-10 h-full">
           <Link
             href="/"
             className={`transition-colors duration-200 font-medium ${
-              pathname === "/"
-                ? "text-emerald-400"
-                : "text-gray-300 hover:text-emerald-400"
+              pathname === "/" ? "text-emerald-400" : "text-gray-300 hover:text-emerald-400"
             }`}
           >
             Home
           </Link>
 
           <Link
-            href="/dashboard"
+            href="/#features"
             className={`transition-colors duration-200 font-medium ${
-              pathname === "/dashboard"
-                ? "text-emerald-400"
-                : "text-gray-300 hover:text-emerald-400"
+              pathname === "/#features" ? "text-emerald-400" : "text-gray-300 hover:text-emerald-400"
             }`}
           >
-            Dashboard
+            Features
           </Link>
         </nav>
 
+        {/* Auth Buttons */}
         <div className="flex items-center space-x-4">
           {user ? (
             <div className="flex items-center space-x-3">
               <Link
-                href="/dashboard"
+                href="/profile"
                 className="w-10 h-10 rounded-full overflow-hidden border-2 border-emerald-500 hover:border-teal-400 transition-all"
               >
                 <Image
