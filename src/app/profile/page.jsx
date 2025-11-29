@@ -45,9 +45,21 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-6 md:px-8 md:py-8">
+    <div className="min-h-screen bg-gray-50 px-4 py-6 md:px-8 md:py-6">
+      
+      <div className="flex justify-center">
+        <div className="w-full h-50 relative overflow-hidden mb-1">
+          <Image
+            src="/SafeRoute2.png"
+            alt="SafeRouter"
+            fill
+            className="object-contain"
+          />
+        </div>
+      </div>
+
       {/* Profile Info Card */}
-      <div className="flex flex-col max-w-md items-center text-center bg-white rounded-xl shadow-md p-6 mx-auto">
+      <div className="flex flex-col max-w-md items-center text-center bg-white rounded-xl shadow-lg p-6 mx-auto">
 
         {/* Profile Image */}
         <div className="w-32 h-32 relative rounded-full overflow-hidden mb-4 border-4 border-emerald-400 shadow">
