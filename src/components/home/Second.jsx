@@ -37,7 +37,7 @@ const Second = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
-    }, 6000);
+    }, 5500);
     return () => clearInterval(timer);
   }, []);
 
@@ -73,7 +73,7 @@ const Second = () => {
             <h3 className="text-xl sm:text-2xl font-bold text-white drop-shadow-md">
               {slide.title}
             </h3>
-            <p className="text-sm sm:text-base text-gray-200 mt-1">
+            <p className="text-xs sm:text-base text-gray-200 mt-1">
               {slide.desc1}
             </p>
             <p className="text-sm sm:text-base text-gray-200">

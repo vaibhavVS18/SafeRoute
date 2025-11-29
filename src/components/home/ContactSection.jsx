@@ -58,6 +58,7 @@ export default function ContactSection() {
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 1, delay: 0.2 }}
       >
+        {/* Inputs without motion */}
         <input
           type="text"
           name="user_name"
