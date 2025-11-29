@@ -18,12 +18,12 @@ export default function ContactSection() {
       )
       .then(
         () => {
-          alert("✅ Message sent successfully!");
+          alert(" Message sent successfully!");
           e.target.reset();
         },
         (error) => {
           console.error(error);
-          alert("❌ Error sending message.");
+          alert(" Error sending message.");
         }
       );
   };
