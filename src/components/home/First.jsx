@@ -2,6 +2,7 @@
 
 import React ,{useContext}from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import { Shield, Users, AlertCircle , ArrowRightCircle, List} from "lucide-react";
 import {UserContext} from "@/context/user.context.jsx";
@@ -50,16 +51,29 @@ const First = () => {
     <section className="flex flex-col lg:flex-row items-center justify-between w-full px-4 sm:px-6 lg:py-20 gap-8 lg:gap-16">
       
       {/* Left Side Text */}
-      <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left space-y-4">
+      <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left space-y-2">
         
         {/* Brand */}
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight flex items-center gap-2">
-          <Shield className="text-emerald-600 w-6 h-6 mt-2" />
-          <span>
-            <span className="text-emerald-600">Safe</span>
-            <span className="text-cyan-600">Route</span>
-          </span>
-        </h2>
+        <div className="flex items-center gap-1 w-full justify-center lg:justify-start">
+
+          {/* Logo Image */}
+          <Image
+            src="/SafeRoute2.png"
+            alt="SafeRoute"
+            width={60}
+            height={60}
+            className="object-contain"
+            priority
+          />
+
+          {/* Brand Text */}
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight flex items-center gap-2">
+            <span>
+              <span className="text-emerald-600">Safe</span>
+              <span className="text-cyan-600">Route</span>
+            </span>
+          </h2>
+        </div>
 
         {/* Tagline */}
         <span className="inline-flex items-center gap-2 px-3 py-1 mt-1 mb-3 text-sm font-medium text-cyan-700 bg-cyan-50 rounded-full">
