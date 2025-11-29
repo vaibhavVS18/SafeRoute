@@ -17,6 +17,34 @@ const Navbar = () => {
     router.push("/");
   };
 
+  // Smooth scroll to features (desktop & mobile)
+  const scrollToFeatures = () => {
+    const desktopOffset = 700;
+    const mobileOffset = 500;
+
+    const offset = window.innerWidth >= 768 ? desktopOffset : mobileOffset;
+
+    // Already on home → directly scroll
+    if (pathname === "/") {
+      setTimeout(() => {
+        window.scrollTo({
+          top: offset,
+          behavior: "smooth",
+        });
+      }, 50);
+      return;
+    }
+
+    // Not on home → navigate to home then scroll
+    router.push("/");
+    setTimeout(() => {
+      window.scrollTo({
+        top: offset,
+        behavior: "smooth",
+      });
+    }, 200); // allow homepage to mount
+  };
+
   return (
     <header className="sticky top-0 inset-x-0 z-50 bg-gradient-to-r from-gray-900 via-gray-950 to-gray-900 backdrop-blur-xl shadow-lg h-20">
       <div className="max-w-7xl mx-auto px-5 py-3 flex items-center justify-between h-full">
@@ -45,14 +73,17 @@ const Navbar = () => {
             Home
           </Link>
 
-          <Link
-            href="/#features"
+          {/*  REPLACED normal link with smooth scroll */}
+          <button
+            onClick={scrollToFeatures}
             className={`transition-colors duration-200 font-medium ${
-              pathname === "/#features" ? "text-emerald-400" : "text-gray-300 hover:text-emerald-400"
+              pathname === "/#features"
+                ? "text-emerald-400"
+                : "text-gray-300 hover:text-emerald-400"
             }`}
           >
             Features
-          </Link>
+          </button>
         </nav>
 
         {/* Auth Buttons */}

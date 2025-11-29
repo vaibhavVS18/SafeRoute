@@ -26,8 +26,8 @@ const features = [
   {
     img: "/safety4.png",
     title: "Safe-Arrival Notification",
-    desc1: "Guardians receive alerts the moment your child or loved one",
-    desc2: "reaches home safely.",
+    desc1: "Guardians receive notification when their child",
+    desc2: " or loved one reaches home safely.",
   },
 ];
 
@@ -38,15 +38,15 @@ export default function Features() {
         Features Designed to Keep You Safe
       </h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {features.map((feature, i) => (
           <motion.div
             key={i}
-            className="relative rounded-3xl overflow-hidden shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300"
+            className="relative rounded-3xl h-88 max-w-80 overflow-hidden shadow-lg cursor-pointer hover:scale-102 transition-transform duration-300"
             whileHover={{ scale: 1.05 }}
           >
             {/* Feature Image */}
-            <div className="relative w-full h-88">
+            <div className="relative h-full w-full">
               <Image
                 src={feature.img}
                 alt={feature.title}
@@ -55,11 +55,11 @@ export default function Features() {
                 priority
               />
               {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div className="absolute inset-0 from-black/60 to-transparent"></div>
             </div>
 
             {/* Text Overlay */}
-            <div className="absolute bottom-0 left-0 right-0 backdrop-blur-md text-white text-center p-2">
+            <div className="absolute bottom-0 left-0 right-0 backdrop-blur-md bg-black/40 text-white text-center p-2">
               <h3 className="text-lg font-bold mb-1 drop-shadow-lg">{feature.title}</h3>
               <p className="text-xs drop-shadow-md">{feature.desc1}</p>
               <p className="text-sm drop-shadow-md">{feature.desc2}</p>
