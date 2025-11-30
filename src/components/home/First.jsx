@@ -58,7 +58,7 @@ const First = () => {
 
           {/* Logo Image */}
           <Image
-            src="/SafeRoute2.png"
+            src="/Saferoute2.png"
             alt="SafeRoute"
             width={60}
             height={60}
