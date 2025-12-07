@@ -37,8 +37,8 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="bg-gray-50 py-20 px-6 overflow-hidden">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+    <section className="py-20 px-6 overflow-hidden bg-linear-to-r from-[#0A0A0A] via-[#0B2244] to-[#0A0A0A]">
+      <h2 className="text-3xl md:text-4xl bg-linear-to-r from-[#C6A667]  to-[#FFB84C] bg-clip-text text-transparent font-bold text-center mb-12">
         Loved by Families & Working Professionals
       </h2>
 
@@ -62,7 +62,7 @@ export default function Testimonials() {
               <p className="text-gray-700 italic text-sm sm:text-base leading-snug sm:leading-relaxed line-clamp-2 sm:line-clamp-none">
                 "{t.text}"
               </p>
-              <h4 className="mt-2 sm:mt-3 font-semibold text-gray-900 text-xs sm:text-sm">
+              <h4 className="mt-2 sm:mt-3 font-semibold text-[#C6A667] text-xs sm:text-sm">
                 {t.user}
               </h4>
             </div>

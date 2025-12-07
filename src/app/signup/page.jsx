@@ -28,103 +28,135 @@ export default function RegisterPage() {
       localStorage.setItem("token", res.data.token);
       setUser(res.data.user);
       router.push("/");
-    } catch (err) {
-      console.error(err?.response?.data || err.message);
+    }    
+    catch (err) {
+      const message =
+        err?.response?.data?.error ||   // our backend returns { error: "..." }
+        err?.response?.data?.message || // fallback
+        err?.message ||
+        "Something went wrong. Please try again.";
 
-      setError(
-        err?.response?.data ||
-          err?.message ||
-          "Something went wrong. Please try again."
-      );
-    } finally {
+      setError(message);
+    }
+    finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center pb-20 bg-gray-50 px-4">
-      <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-2xl w-full max-w-md border border-gray-200">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-center bg-gradient-to-r from-emerald-500 to-teal-400 bg-clip-text text-transparent">
+    <div
+      className="
+        min-h-screen flex items-center justify-center px-4 pb-20"
+    >
+      <div
+        className="
+          bg-[#0E0E0E]/60 backdrop-blur-xl 
+          p-6 sm:p-8 rounded-2xl shadow-2xl 
+          w-full max-w-md border border-[#C6A667]/40
+        "
+      >
+        <h2
+          className="
+            text-2xl sm:text-3xl font-bold mb-6 text-center
+            bg-linear-to-r from-[#C6A667] to-[#FFB84C]
+            bg-clip-text text-transparent
+          "
+        >
           Create Account
         </h2>
 
         <form onSubmit={submitHandler} className="space-y-5">
-
           {/* Email */}
           <div>
-            <label className="block text-gray-600 mb-2 text-sm font-medium">
+            <label
+              className="block text-gray-300 mb-2 text-sm font-medium"
+              htmlFor="email"
+            >
               Email
             </label>
-
             <input
               onChange={(e) => {
                 setEmail(e.target.value);
                 setError("");
               }}
               type="email"
+              id="email"
               placeholder="Enter your email"
               required
-              className={`w-full py-3 px-4 rounded-lg bg-gray-50 border text-emerald-800 text-sm
-                ${error ? "border-red-600" : "border-gray-300"}
-                focus:outline-none focus:ring-2
-                ${error ? "focus:ring-red-600" : "focus:ring-emerald-400"}
-                transition-all`}
+              className={`
+                w-full py-3 px-4 rounded-lg bg-linear-to-r from-[#1A1A1A]/70 via-gray-800 to-[#1A1A1A]/70 border text-gray-100 
+                text-sm sm:text-base
+                ${error ? "border-red-500" : "border-[#C6A667]/40"}
+                focus:outline-none focus:ring-2 
+                ${error ? "focus:ring-red-600" : "focus:ring-[#C6A667]"}
+                transition-all
+              `}
             />
           </div>
 
           {/* Password */}
           <div>
-            <label className="block text-gray-600 mb-2 text-sm font-medium">
+            <label
+              className="block text-gray-300 mb-2 text-sm font-medium"
+              htmlFor="password"
+            >
               Password
             </label>
-
             <input
               onChange={(e) => {
                 setPassword(e.target.value);
                 setError("");
               }}
               type="password"
+              id="password"
               placeholder="Enter your password"
               required
-              className={`w-full py-3 px-4 rounded-lg bg-gray-50 border text-emerald-800 text-sm
-                ${error ? "border-red-600" : "border-gray-300"}
+              className={`
+                w-full py-3 px-4 rounded-lg bg-linear-to-r from-[#1A1A1A]/70 via-gray-800 to-[#1A1A1A]/70 border text-gray-100
+                text-sm sm:text-base
+                ${error ? "border-red-500" : "border-[#C6A667]/40"}
                 focus:outline-none focus:ring-2
-                ${error ? "focus:ring-red-600" : "focus:ring-emerald-400"}
-                transition-all`}
+                ${error ? "focus:ring-red-600" : "focus:ring-[#C6A667]"}
+                transition-all
+              `}
             />
+
+            {error && <p className="text-red-500 text-xs mt-2">{error}</p>}
           </div>
 
-          {/* Error */}
-          {error && <p className="text-red-600 text-xs mt-2">{error}</p>}
-
-          {/* Submit */}
+          {/* Submit Button */}
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-3 rounded-xl font-semibold shadow-md transition-all text-sm
-              ${
-                loading
-                  ? "bg-gray-300 text-gray-600 cursor-not-allowed"
-                  : "bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-white"
-              }`}
+            className={`w-full py-3 rounded-xl font-semibold shadow-md transition-all text-sm sm:text-base cursor-pointer ${
+              loading
+                ? "bg-gray-400 text-gray-700 cursor-not-allowed"
+                : `bg-linear-to-r from-[#C6A667] via-[#FFB84C] to-[#A68945]
+                  hover:shadow-[0_0_15px_#C6A66780]
+                  text-black`
+            }`}
           >
             {loading ? "Registering..." : "Register"}
           </button>
+
         </form>
 
         {/* Divider */}
         <div className="flex items-center my-4">
-          <hr className="flex-1 border-gray-300" />
+          <hr className="flex-1 border-[#C6A667]/30" />
           <span className="px-3 text-gray-400">or</span>
-          <hr className="flex-1 border-gray-300" />
+          <hr className="flex-1 border-[#C6A667]/30" />
         </div>
 
-        {/* Login */}
-        <p className="text-gray-500 mt-5 text-center text-sm">
+        {/* Login Link */}
+        <p className="text-gray-400 mt-5 text-center text-sm">
           Already have an account?{" "}
           <a
             href="/login"
-            className="text-emerald-600 hover:text-teal-500 font-medium transition-colors"
+            className="
+              text-[#FFB84C] hover:text-[#C6A667] 
+              font-medium transition-colors
+            "
           >
             Login
           </a>

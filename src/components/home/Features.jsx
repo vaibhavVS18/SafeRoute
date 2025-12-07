@@ -25,16 +25,17 @@ const features = [
   },
   {
     img: "/safety4.png",
-    title: "Safe-Arrival Notification",
-    desc1: "Guardians receive notification when their child",
-    desc2: " or loved one reaches home safely.",
+    // title: "Safe-Arrival Notification",
+    title: "Track your loved one or child",
+    desc1: "You can send request to the loved one",
+    desc2: "to track them for safe travel.",
   },
 ];
 
 export default function Features() {
   return (
-    <section className="px-6 py-20 mx-auto min-h-screen flex flex-col justify-center bg-gray-100">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+    <section className="px-6 py-20 mx-auto min-h-screen flex flex-col justify-center bg-gray">
+      <h2 className="text-3xl md:text-4xl bg-linear-to-r from-[#C6A667]  to-[#FFB84C] bg-clip-text text-transparent font-bold text-center mb-12">
         Features Designed to Keep You Safe
       </h2>
       
@@ -42,7 +43,12 @@ export default function Features() {
         {features.map((feature, i) => (
           <motion.div
             key={i}
-            className="relative rounded-3xl h-80 w-72 overflow-hidden shadow-lg cursor-pointer hover:scale-102 transition-transform duration-300"
+className="
+  relative rounded-3xl h-80 w-72 overflow-hidden 
+  shadow-[0_0_10px_4px_#C6A667]
+  hover:scale-102 transition-transform duration-300
+"
+
             whileHover={{ scale: 1.05 }}
           >
             {/* Feature Image */}
@@ -54,7 +60,7 @@ export default function Features() {
                 className="object-cover "
                 priority
               />
-              {/* Overlay Gradient */}
+              {/* Overlay linear */}
               <div className="absolute inset-0 from-black/60 to-transparent"></div>
             </div>
 

@@ -1,1 +1,9 @@
 @import "tailwindcss";
+
+body {
+  background-image: url('/bgtexture.jpeg'); /* replace with your file */
+  background-size: cover;       /* or 'contain' or 'auto' */
+  background-repeat: no-repeat; /* prevent tiling */
+  background-position: center;
+  background-attachment: fixed; /* keeps bg fixed during scroll */
+}

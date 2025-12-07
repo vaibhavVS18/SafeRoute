@@ -20,7 +20,82 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-    }
+    },
+
+    // People who can track ME (if allowed)
+    guardians: [
+      {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+        canViewLocation: {
+          type: Boolean,
+          default: false,
+        },
+        addedAt: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
+
+    // People I can track (I am their guardian)
+    trackedUsers: [
+      {
+        user: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+        canViewLocation: {
+          type: Boolean,
+          default: false,
+        },
+        addedAt: {
+          type: Date,
+          default: Date.now,
+        },
+      },
+    ],
+
+    incomingRequests: [
+      {
+        from: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+          required: true
+        },
+        status: {
+          type: String,
+          enum: ["pending", "accepted", "rejected"],
+          default: "pending"
+        },
+        requestedAt: {
+          type: Date,
+          default: Date.now
+        }
+      }
+    ],
+
+    outgoingRequests: [
+      {
+        from: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+          required: true
+        },
+        status: {
+          type: String,
+          enum: ["pending", "accepted", "rejected"],
+          default: "pending"
+        },
+        requestedAt: {
+          type: Date,
+          default: Date.now
+        }
+      }
+    ],
+
   },
   { timestamps: true }
 );

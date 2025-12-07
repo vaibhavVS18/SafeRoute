@@ -25,9 +25,9 @@ const slides = [
   },
   {
     img: "/safety4.png",
-    title: "Safe-Arrival Notification",
-    desc1: "Guardians receive alerts the moment your child or loved one",
-    desc2: "reaches home safely.",
+    title: "Track your loved one or child",
+    desc1: "You can send request to the loved one or child",
+    desc2: "to track them for safe travel.",
   },
 ];
 
@@ -50,14 +50,14 @@ const Second = () => {
   };
 
   return (
-    <div className="relative flex-1 max-w-[350px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[520px] xl:max-w-[600px] aspect-square mx-auto lg:mx-0 lg:ml-auto overflow-hidden rounded-3xl shadow-2xl border border-gray-700/40 transition-all duration-500">
+    <div className="relative flex-1 max-w-[350px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[520px] xl:max-w-[600px] aspect-square mx-auto lg:mx-0 lg:ml-auto overflow-hidden rounded-3xl border border-gray-700/40 shadow-[0_0_10px_4px_#C6A667] transition-all duration-500">
 
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-1000 ${
-            index === current ? "opacity-100" : "opacity-0"
+          className={`absolute inset-0  flex flex-col items-center justify-center transition-opacity duration-1000 ${
+            index === current ? "opacity-88" : "opacity-0"
           }`}
         >
           <Image
@@ -69,7 +69,7 @@ const Second = () => {
           />
 
           {/* Overlay for text */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full bg-black/50 backdrop-blur-sm rounded-b-xl p-4 py-5 text-center">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full bg-black/30 backdrop-blur-sm rounded-b-xl p-4 py-5 text-center">
             <h3 className="text-xl sm:text-2xl font-bold text-white drop-shadow-md">
               {slide.title}
             </h3>
